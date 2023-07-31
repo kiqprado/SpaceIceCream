@@ -13,7 +13,7 @@
 </p>
 
 ## 💻 Projeto
-Você pode visualizar o resultado clincando neste [LINK](https://kiqprado.github.io/SpaceCream/).
+Você pode visualizar o resultado clincando neste [LINK](https://kiqprado.github.io/SpaceIceCream/).
 
 ---
 <div align="center">
