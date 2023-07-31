@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Palanquin&family=Roboto&family=Staatliches&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-header: hsl(218, 17%, 62%);
+  --bg: hsl(233, 100%, 97%);
+  --h1-bg: hsl(275, 18%, 79%);
+  --h2-text: hsl(232, 17%, 35%);
+  --bg-h2: hsl(312, 91%, 96%);
+  --paragraph: hsl(274, 84%, 12%);
+  --footer-text: hsl(232, 17%, 35%);
+  --white: #fff;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Staatliches', cursive;
+  background: var(--bg);
+
+  max-width: 38.4rem;
+  margin: 0 auto;
+}
+
+/* ====== HEADER ====== */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.8rem;
+
+  padding: 3.2rem 0;
+  border-radius: 0 0 0.6rem 0.6rem;
+
+  background: var(--bg-header);
+}
+
+h1 {
+  color: var(--white);
+  text-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  background: var(--h1-bg);
+  width: 100%;
+  text-align: center;
+
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 2px;
+}
+
+/* ====== MAIN ====== */
+
+main {
+  padding: 2.4rem 3.2rem;
+  display: grid;
+  gap: 3.2rem;
+}
+
+p {
+  text-align: center;
+  font-family: 'Palanquin', sans-serif;
+  font-feature-settings: 'subs' on;
+  color: var(--paragraph);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+
+  margin-bottom: 2.4rem;
+}
+
+.item {
+  position: relative;
+
+  --delay: 0.3s;
+  animation: appearance 500ms var(--delay) ease-in-out backwards;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 2rem;
+
+  transition: all 550ms ease-in-out;
+}
+
+.item img:hover {
+  transform: scale(1.1);
+  filter: saturate(121%);
+}
+
+.large img {
+  aspect-ratio: 10/8;
+  object-fit: cover;
+}
+
+.high img {
+  aspect-ratio: 9/12;
+  object-fit: cover;
+}
+
+.item h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  border-radius: 2rem;
+  background: var(--bg-h2);
+  padding: 0 2.4rem;
+
+  color: var(--h2-text);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 1px;
+}
+
+.item h2:hover {
+  font-weight: bold;
+}
+
+footer {
+  display: none;
+}
+
+/* ===== MEDIA CONTROL ===== */
+
+@media (min-width: 768px) {
+  body {
+    max-width: 120rem;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+      'header main'
+      'header main'
+      'header footer';
+    margin: 0;
+  }
+
+  /* ==== HEADER ==== */
+  header {
+    grid-area: header;
+    width: 36.8rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+  }
+
+  /* ==== MAIN ==== */
+  main {
+    grid-area: main;
+    max-width: 98rem;
+    height: fit-content;
+    display: grid;
+    grid-template-areas:
+      'a b c'
+      'd b e'
+      'd f e';
+    gap: 3.2rem;
+    padding: 5.8rem 14rem 2rem;
+    align-items: center;
+  }
+
+  .text {
+    position: absolute;
+    left: 4.5rem;
+    bottom: 4.8rem;
+  }
+
+  .text p {
+    max-width: 27.5rem;
+
+    color: var(--white);
+    text-align: center;
+    font-feature-settings: 'subs' on;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .item {
+    width: 22rem;
+  }
+
+  .item h2 {
+    display: none;
+  }
+
+  .item img {
+    max-width: 100%;
+  }
+
+  .one {
+    grid-area: a;
+  }
+
+  .two {
+    grid-area: b;
+  }
+
+  .three {
+    grid-area: c;
+  }
+
+  .four {
+    grid-area: d;
+  }
+
+  .five {
+    grid-area: e;
+  }
+
+  .six {
+    grid-area: f;
+  }
+
+  footer {
+    grid-area: footer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  footer p {
+    color: var(--footer-text);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2.8rem;
+  }
+
+  footer a {
+    text-decoration: none;
+    color: var(--footer-text);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2.8rem;
+  }
+
+  footer a:hover {
+    color: var(--h1-bg);
+  }
+}
+
+/* === ANIMATION === */
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
